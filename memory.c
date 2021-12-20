@@ -12,7 +12,7 @@ allocated_memory.segment_size = 0;
 bool match = false;
 int memory_map_index = 0 , best_fit_segmant = 0;
 
-    for (int i = 0; i < *map_cnt - 1; i++) { //mejor ajuste
+    for (int i = 0; i <= *map_cnt; i++) { //mejor ajuste
 
         if (request_size == memory_map[i].segment_size) { //par, guarda indice y rompe adelante
             match = true;
@@ -43,8 +43,8 @@ int memory_map_index = 0 , best_fit_segmant = 0;
         allocated_memory.segment_size = request_size;
         *map_cnt = *map_cnt + 1;
 
-        for (int i = memory_map_index; i < *map_cnt; i++){
-        memory_map[memory_map_index+1] = memory_map[i];
+        for (int i = memory_map_index; i <= *map_cnt; i++){
+             memory_map[memory_map_index+1] = memory_map[i];
         }
 
         memory_map[memory_map_index+1].start_address = allocated_memory.end_address + 1;
