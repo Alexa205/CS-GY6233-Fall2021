@@ -12,7 +12,7 @@ allocated_memory.segment_size = 0;
 bool match = false;
 int memory_map_index = 0 , best_fit_segmant = 0;
 
-    for (int i = 0; i <= *map_cnt - 1; i++) { //mejor ajuste
+    for (int i = 0; i < *map_cnt - 1; i++) { //mejor ajuste
 
         if (request_size == memory_map[i].segment_size) { //par, guarda indice y rompe adelante
             match = true;
@@ -43,7 +43,7 @@ int memory_map_index = 0 , best_fit_segmant = 0;
         allocated_memory.segment_size = request_size;
         *map_cnt = *map_cnt + 1;
 
-        for (int i = memory_map_index; i <= *map_cnt; i++){
+        for (int i = memory_map_index; i < *map_cnt; i++){
         memory_map[memory_map_index+1] = memory_map[i];
         }
 
@@ -66,7 +66,7 @@ allocated_memory.segment_size = 0;
 bool match = false;
 int memory_map_index = 0 , best_fit_segmant = 0;
 
-    for (int i = 0; i <= *map_cnt - 1; i++) { //14
+    for (int i = 0; i < *map_cnt - 1; i++) { //14
         if (request_size <= memory_map[i].segment_size) { //15
             match = true;
             memory_map_index = i;
@@ -83,7 +83,7 @@ int memory_map_index = 0 , best_fit_segmant = 0;
         allocated_memory.segment_size = request_size;
         *map_cnt = *map_cnt + 1;
 
-        for (int i = memory_map_index; i <= *map_cnt; i++){
+        for (int i = memory_map_index; i < *map_cnt; i++){
             memory_map[memory_map_index+1] = memory_map[i];
         }
 
@@ -106,7 +106,7 @@ allocated_memory.segment_size = 0;
 bool match = false;
 int memory_map_index = 0 , worst_fit_segmant = 0;
 
-    for (int i = 0; i <= *map_cnt - 1; i++) { //contra 14
+    for (int i = 0; i < *map_cnt - 1; i++) { //contra 14
 
         if ((memory_map[i].segment_size >= request_size) && (memory_map[i].process_id == 0)) { //cuadro
             if (match == false){ //primer cuadro
@@ -131,7 +131,7 @@ int memory_map_index = 0 , worst_fit_segmant = 0;
         allocated_memory.segment_size = request_size;
         *map_cnt = *map_cnt + 1;
 
-        for (int i = memory_map_index; i <= *map_cnt; i++){
+        for (int i = memory_map_index; i < *map_cnt; i++){
             memory_map[memory_map_index+1] = memory_map[i];
         }
 
@@ -154,7 +154,7 @@ bool match = false;
 int memory_map_index = 0 , best_fit_segmant = 0;
 int index = 0;
 
-    for (int i = last_address; i <= *map_cnt+ last_address - 1; i++) { //Proximo cuadro
+    for (int i = last_address; i < *map_cnt+ last_address - 1; i++) { //Proximo cuadro
         if (i >= *map_cnt){
             index = i - *map_cnt;
         }
