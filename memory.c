@@ -41,7 +41,7 @@ int memory_map_index = 0 , best_fit_segmant = 0;
         allocated_memory.end_address = allocated_memory.start_address + request_size - 1;
         allocated_memory.process_id = process_id;
         allocated_memory.segment_size = request_size;
-        //*map_cnt = *map_cnt + 1;
+        *map_cnt = *map_cnt + 1;
 
         for (int i = memory_map_index; i <= *map_cnt; i++){
              memory_map[memory_map_index+1] = memory_map[i];
