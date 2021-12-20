@@ -50,12 +50,11 @@ int memory_map_index = 0 , best_fit_segmant = 0;
         memory_map[memory_map_index+1].start_address = allocated_memory.end_address + 1;
         memory_map[memory_map_index+1].end_address = memory_map[memory_map_index].end_address;
         memory_map[memory_map_index+1].process_id = memory_map[memory_map_index].process_id;
-        memory_map[memory_map_index+1].segment_size = memory_map[memory_map_index].segment_size - request_size;
+        memory_map[memory_map_index].segment_size = memory_map[memory_map_index].segment_size - request_size;
         memory_map[memory_map_index] = allocated_memory;
     }
-    if (allocated_memory.process_id<=4) {
-        return allocated_memory;
-    }
+
+return allocated_memory;    
 
 }
 struct MEMORY_BLOCK first_fit_allocate(int request_size, struct MEMORY_BLOCK memory_map[MAPMAX],int *map_cnt, int process_id) {
